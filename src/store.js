@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    cart:[],
     title:'My custom title',
     links:[
       "abc",
@@ -28,6 +29,11 @@ export default new Vuex.Store({
     },
     REMOVE_ALL: (state) => {                     // Add this
       state.links = []
+    },
+    addToCart( state, item){
+          state.cart.push(item)
+
+
     }
   
     
