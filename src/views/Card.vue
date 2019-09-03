@@ -1,73 +1,75 @@
 <template>
-<div>
+  <div>
     <header>
-    <div class="container">
-      <h1 class="logo"></h1>
+      <div class="container">
+        <h1 class="logo"></h1>
 
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <b-card-group deck>
-
-<demo-card title= " this " image="/img/sandisk.jpeg" />
-<demo-card title=" this is a penS "/>
-<demo-card title=" this is small description "/>
-</b-card-group>
-</div> 
+        <nav>
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Pricing</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <b-card-group deck class="mt-5 mb-5">
+      <demo-card title=" this is a penS " image="/img/sandisk.jpeg" cardBody />
+      <demo-card title=" this is small description " image="/img/sandisk.jpeg" />
+    </b-card-group>
+  </div>
 </template>
 <script>
-import DemoCard from "@/views/DemoCard.vue"
+import DemoCard from "@/views/DemoCard.vue";
+
 export default {
-    components:{
- DemoCard
-    },
-    name: "add-to-cart",
-    props: {
-        name: String,
-        price: String,
-        productId: String
-    },
-    data(){
-        return{
-          image:'/img/sandisk.jpeg',
-            item : {
-            productName: this.name,
-            product_id: this.id,
-            productPrice: this.price,
-        
-            }
-            }
-    },
-    methods:{
-        addToCart()
-    {
-        this.$store.commit('addToCart', )
-
+  components: {
+    DemoCard
+  },
+  name: "add-to-cart",
+  props: {
+    name: String,
+    price: String,
+    productId: String
+  },
+  data() {
+    return {
+      image: "/img/sandisk.jpeg",
+      cardBody: Boolean, 
+      item: {
+        productName: this.name,
+        product_id: this.id,
+        productPrice: this.price
+      }
+    };
+  },
+  methods: {
+    addToCart() {
+      this.$store.commit("addToCart");
     }
-    
-    }
-    
-
+  }
 };
 </script>
 <style scoped>
 .container {
-	width: 80%;
-	margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.card-img-top{
-    padding: 20px !important;
+.card-img-top {
+  padding: 20px !important;
 }
 header::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -107,7 +109,7 @@ nav a:hover {
 }
 
 nav a::before {
-  content: '';
+  content: "";
   display: block;
   height: 5px;
   background-color: #444;
@@ -115,12 +117,14 @@ nav a::before {
   position: absolute;
   top: 0;
   width: 0%;
-
-  
 }
 
 nav a:hover::before {
   width: 100%;
 }
-
+</style>
+<style >
+.abc {
+  margin-top: 100px !important;
+}
 </style>
